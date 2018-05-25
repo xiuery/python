@@ -1,2 +1,2 @@
 # Python
-Python 常用笔记
+Python一些库的简单使用
