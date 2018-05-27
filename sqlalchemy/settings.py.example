@@ -1,0 +1,4 @@
+
+# MYSQL_SETTING = 'mysql://root:root@192.168.200.227:3306/apps?charset=utf8'
+
+MYSQL_SETTING = 'mysql://xiuery:xiuery@192.168.200.227:3306/apps?charset=utf8'

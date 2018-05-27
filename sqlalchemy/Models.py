@@ -10,6 +10,9 @@ class User(BaseModel):
     id = Column(Integer, primary_key=True)
     username = Column(String(128))
 
+    def to_dict(self):
+        return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+
 
 if __name__ == '__main__':
     from DBSession import DBSession
@@ -17,5 +20,9 @@ if __name__ == '__main__':
     db_session = DBSession()
     users = db_session.query(User).all()
 
-    print(users)
+    for user in users:
+        try:
+            print(user.to_dict())
+        except:
+            raise
 
