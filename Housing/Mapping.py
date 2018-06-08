@@ -3,7 +3,7 @@ from sqlalchemy.types import Integer, String, TEXT
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-MYSQL_SETTING = "mysql://test:test123@104.224.160.190:3306/housing?charset=utf8"
+MYSQL_SETTING = ""
 
 engine = create_engine(MYSQL_SETTING, pool_size=20, max_overflow=0)
 # 创建DBSession类型:
