@@ -68,6 +68,24 @@ class SeleniumBase(WebDriver):
     wait 
     '''
     @func_set_timeout(30)
+    def wait_window_by_title(self, title):
+        '''
+        Use the window title select window.
+
+        Usage:
+        driver.wait_window_by_title("window title")
+        '''
+        while True:
+            all_handles = self.driver.window_handles
+            for handle in all_handles:
+                self.driver.switch_to.window(handle)
+                if self.driver.title == title:
+                    return True
+
+    '''
+    wait 
+    '''
+    @func_set_timeout(30)
     def wait_window_by_titles(self, titles):
         '''
         Use the window title select window.

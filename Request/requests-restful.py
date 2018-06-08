@@ -46,6 +46,17 @@ print(picture.json())
 # ================================================
 '''
 
+'''
+# auth:
+
+from requests.auth import HTTPDigestAuth
+
+url = 'http://httpbin.org/digest-auth/auth/user/pass'
+auth = HTTPDigestAuth('user', 'pass')
+
+r = requests.get(url, auth=auth)
+'''
+
 
 # get:
 url = domain + ':8883/api/resellers'
