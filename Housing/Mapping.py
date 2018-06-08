@@ -25,38 +25,7 @@ class Registration(BaseModel):
 
     id = Column(Integer, primary_key=True)
     pur_apply = Column(String(64))
-    status = Column(String(32))
-    type = Column(String(64))
-    family_type = Column(String(64))
-    number = Column(String(32))
-    area = Column(String(32))
-    license = Column(Integer)
-
-    person_type = Column(String(32))
-    certificate_type = Column(String(32))
-    username = Column(String(32))
-    id_card = Column(String(32))
-    is_join = Column(String(32))
-    household_area = Column(String(64))
-    social_type = Column(String(32))
-    social_number = Column(String(32))
-    company_name = Column(String(64))
-
-    family_member = Column(TEXT)
-    create_time = Column(Integer)
-    update_time = Column(Integer)
-    delete_time = Column(Integer)
-
-    def to_dict(self):
-        return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
-
-
-class RegistrationNew(BaseModel):
-    __tablename__ = 'hs_registration_new'
-
-    id = Column(Integer, primary_key=True)
-    pur_apply = Column(String(64))
-    status = Column(String(32))
+    status = Column(String(64))
     type = Column(String(64))
     family_type = Column(String(64))
     divorce_time = Column(String(32))
@@ -75,6 +44,8 @@ class RegistrationNew(BaseModel):
     social_number = Column(String(32))
     company_name = Column(String(64))
     certificate_company_name = Column(String(64))
+    stationed = Column(String(64))
+    full_name_troops = Column(String(64))
 
     family_member = Column(TEXT)
     create_time = Column(Integer)
