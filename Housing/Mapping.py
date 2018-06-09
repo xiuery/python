@@ -3,7 +3,7 @@ from sqlalchemy.types import Integer, String, TEXT
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-MYSQL_SETTING = ""
+MYSQL_SETTING = "mysql://root:root@192.168.200.228:3306/housing?charset=utf8"
 
 engine = create_engine(MYSQL_SETTING, pool_size=20, max_overflow=0)
 # 创建DBSession类型:
@@ -21,11 +21,11 @@ def drop_db():
 
 
 class Registration(BaseModel):
-    __tablename__ = 'hs_registration'
+    __tablename__ = 'hs_registration_new'
 
     id = Column(Integer, primary_key=True)
     pur_apply = Column(String(64))
-    status = Column(String(64))
+    status = Column(String(256))
     type = Column(String(64))
     family_type = Column(String(64))
     divorce_time = Column(String(32))
@@ -56,7 +56,22 @@ class Registration(BaseModel):
         return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
 
 
+class FailProcess(BaseModel):
+    __tablename__ = 'hs_fail_process'
+
+    id = Column(Integer, primary_key=True)
+    number = Column(String(32))
+    status = Column(String(4))
+
+    def to_dict(self):
+        return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+
+
 if __name__ == '__main__':
     session = DBSession()
-    result = session.query(Registration).all()
-    print(result)
+    # result = session.query(FailProcess).all()
+    # print(len(result))
+    # print([r.to_dict() for r in result])
+
+    print(session.query(FailProcess).filter_by(number=1).first())
+
