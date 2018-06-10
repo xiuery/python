@@ -16,6 +16,7 @@ https://github.com/tesseract-ocr/tesseract/wiki/4.0-with-LSTM#400-alpha-for-wind
 from PIL import Image
 import pytesseract
 
-for picture in ['abc.jpg', '2.JPG']:
+for picture in ['images/img_01.png']:
     text = pytesseract.image_to_string(Image.open(picture), lang='chi_sim')
+
     print(text)

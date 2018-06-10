@@ -7,6 +7,6 @@ import pytesseract
 
 time1 = time.time()
 
-image = Image.open(r'20170608124203095.png')
+image = Image.open(r'img_01.png')
 code = pytesseract.image_to_string(image)
 print(code)

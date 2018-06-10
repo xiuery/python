@@ -11,6 +11,8 @@ pip freeze > requirements.txt
 # 相关链接：https://github.com/bndr/pipreqs
 pip install pipreqs
 pipreqs --encoding utf-8 project-path
+# 更新依赖库
+pipreqs --force --encoding utf-8 project-path
 
 # 安装项目依赖库
 pip install -r requirements.txt
@@ -21,4 +23,20 @@ pip install -r requirements.txt
 在使用selenium做业务处理的时候，遇到selenium的webdirver对象无法deepcopy
 ```
 
+- 生成list
+```
+[x for x in range(1, 1000)]
+```
+
+- 拆开dict传递参数: 在sqlachemy中add很有用
+```
+a = {
+    'b': 'b',
+    'c': 'c'
+}
+def d(b, c):
+    pass
+
+print(d(**a))
+```
 
